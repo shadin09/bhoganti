@@ -3,7 +3,7 @@
    - Supabase-এর কল (জমা, র‍্যাঙ্কিং) কখনো ক্যাশ হয় না, সবসময় নেট থেকে আসে।
    - ফন্ট একবার নামলে ক্যাশ থেকে আসে।
    নতুন সংস্করণ দিলে নিচের VERSION বদলান, নইলে পুরোনো ফাইল ক্যাশে থেকে যাবে। */
-const VERSION = "bhoganti-v4";
+const VERSION = "bhoganti-v5";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./og.jpg"];
 
 self.addEventListener("install", (e) => {
