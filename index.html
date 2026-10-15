@@ -134,6 +134,7 @@ html[data-theme=light] .chip[aria-pressed=true],html[data-theme=cream] .chip[ari
 .trust{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--mute)}.trust svg{flex:none;margin-top:4px}
 .live{margin-top:16px;display:none}.live.on{display:block}
 .live .it{display:flex;justify-content:space-between;gap:10px;font-size:14.5px;padding:7px 0;border-top:1px solid var(--line);animation:fadeup .5s var(--ease)}.live .it b{color:var(--tealT)}
+.cnt{display:none;align-items:center;gap:9px;margin:14px 0 4px;padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:var(--panel);box-shadow:var(--sh);font-size:14.5px;width:fit-content;max-width:100%}.cnt.on{display:inline-flex;animation:fadeup .5s var(--ease)}.cnt i{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:cntp 2s infinite;flex:none}.cnt b{color:var(--tealT)}@keyframes cntp{70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}@media(prefers-reduced-motion:reduce){.cnt i{animation:none}}
 .cardx{border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:14px;background:var(--panel);backdrop-filter:blur(12px);box-shadow:var(--sh);opacity:0;animation:rise .6s var(--ease) forwards}
 .cardx .hd{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}.cardx h3{font-size:19px;margin:0}
 .lad{margin:10px 0 4px;padding-left:0;list-style:none;counter-reset:l}
@@ -587,6 +588,7 @@ html[data-theme=dark] body:not(.nohd) .bgfx .moonx{opacity:0}
 <section class="screen" id="s-home"><div class="hero">
 <p class="dateline" id="dateline"></p><h1 data-t="hm_h"></h1><div class="alp-slot"></div><p class="sub" style="font-size:18px;max-width:560px" data-t="hm_p"></p>
 <button class="btn" id="start" style="margin-top:6px" data-t="hm_btn"></button>
+<div class="cnt" id="cnt" aria-live="polite"><i></i><span id="cntT"></span></div>
 <div class="facts"><div><b id="fq"></b><span data-t="hm_f1"></span></div><div><b id="ft"></b><span data-t="hm_f2"></span></div><div><b id="fm"></b><span data-t="hm_f3"></span></div></div>
 <div class="trust"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="12" height="8" rx="2"/><path d="M7 9V6.5a3 3 0 016 0V9"/></svg><span data-t="hm_trust"></span></div>
 <div class="live" id="live"><h3 data-t="hm_live" style="margin:0 0 4px"></h3><div id="liveL"></div></div>
@@ -946,7 +948,7 @@ hm_p:["রাস্তা, বিদ্যুৎ, পানি, গ্যাস,
 hm_btn:["মূল্যায়ন শুরু করুন","Start the assessment","मूल्यांकन शुरू करें"],
 hm_f1:["প্রশ্ন","Questions","प्रश्न"],hm_f2:["বিষয়","Topics","विषय"],hm_f3:["মিনিট সময়","Minutes","मिनट का समय"],
 hm_trust:["নাম বা ফোন নম্বর লাগে না। আপনার সম্মতি ছাড়া কিছু শেয়ার হয় না। কেবল নিজের লেখা বিশ্লেষণ করতে চাইলে সেই লেখাটুকু বিশ্লেষণের জন্য পাঠানো হয়।","No name or phone number needed. Nothing is shared without your consent. Only if you choose to have your own writing analysed is that text sent for analysis.","नाम या फ़ोन नंबर की ज़रूरत नहीं। आपकी सहमति के बिना कुछ भी साझा नहीं होता। सिर्फ़ अपना लिखा विश्लेषण कराना चाहें तो वही पाठ विश्लेषण के लिए भेजा जाता है।"],
-hm_l1:["মানুষ কী বলছে","What people are saying","लोग क्या कह रहे हैं"],hm_l2:["এলাকার র‍্যাঙ্কিং","Area rankings","इलाकों की रैंकिंग"],hm_res:["আগের ফলাফল দেখুন","See your previous result","पिछला नतीजा देखें"],hm_live:["সাম্প্রতিক জমা","Recent entries","हाल की प्रविष्टियाँ"],
+hm_l1:["মানুষ কী বলছে","What people are saying","लोग क्या कह रहे हैं"],hm_l2:["এলাকার র‍্যাঙ্কিং","Area rankings","इलाकों की रैंकिंग"],hm_res:["আগের ফলাফল দেখুন","See your previous result","पिछला नतीजा देखें"],hm_cnt:["এ পর্যন্ত {n} জন নিজের এলাকার কথা জানিয়েছেন","So far {n} people have shared how services work in their area","अब तक {n} लोगों ने अपने इलाके की बात बताई है"],hm_live:["সাম্প্রতিক জমা","Recent entries","हाल की प्रविष्टियाँ"],
 wh_h:["আপনি কোথায় থাকেন?","Where do you live?","आप कहाँ रहते हैं?"],
 wh_p:["সমাধানের পরামর্শ আপনার এলাকার ধরন ধরে তৈরি হবে।","Advice will be tailored to your type of area.","समाधान की सलाह आपके इलाके के प्रकार के अनुसार बनेगी।"],
 wh_nm:["আপনার নাম (ঐচ্ছিক, কার্ডে থাকবে)","Your name (optional, shown on the card)","आपका नाम (वैकल्पिक, कार्ड पर दिखेगा)"],
@@ -1720,7 +1722,19 @@ async function loadLive(){const c=CACHE.live;if(c.v&&Date.now()-c.t<TTL)return c
 async function startRest(){
  try{await REST.get("district_stats?select=district_id&limit=1");S.rest=true;document.body.classList.remove("nodb");$("mnad").style.display="flex";consentUI();renderLive()}catch(e){S.rest=false}}
 const caseArea=c=>{const d=dn(c.di),u=c.ui>=0?un(c.di,c.ui):c.u;return(u?u+", ":"")+d};
-async function renderLive(){
+let CNT=0;
+async function renderCnt(){const el=$("cnt");if(!el)return;
+ if(!S.rest){el.classList.remove("on");return}
+ try{const st=await loadStats();CNT=st.D.reduce((a,r)=>a+(+r.n||0),0)}catch(e){el.classList.remove("on");return}
+ if(CNT<1){el.classList.remove("on");return}
+ const fmt=n=>bn(S.lang===0?n.toLocaleString("en-IN"):n.toLocaleString("en-US"));
+ const put=n=>{$("cntT").innerHTML=esc(t("hm_cnt",{n:"\u0001"})).replace("\u0001","<b>"+fmt(n)+"</b>")};
+ el.classList.add("on");
+ if(S.scr!=="home"){put(CNT);return}
+ if(matchMedia("(prefers-reduced-motion:reduce)").matches||el.dataset.done==="1"){put(CNT);el.dataset.done="1";return}
+ el.dataset.done="1";const t0=performance.now(),D=1200;
+ (function f(now){const p=Math.min(1,(now-t0)/D);put(Math.round(CNT*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(t0)}
+async function renderLive(){renderCnt();
  const el=$("live");if(!S.rest||S.scr!=="home"){if(!S.rest)el.classList.remove("on");return}
  try{const rows=await loadLive();if(!rows.length){el.classList.remove("on");return}
   $("liveL").innerHTML=rows.map(c=>`<div class="it"><span>${esc(caseArea({di:c.district_id,ui:c.upazila_id==null?-1:c.upazila_id,u:c.upazila||""}))}</span><b>${bn(c.score)}</b></div>`).join("");el.classList.add("on")}catch(e){el.classList.remove("on")}}
